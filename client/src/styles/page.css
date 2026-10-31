@@ -1,0 +1,38 @@
+:root {
+  --color-black: #000;
+  --color-text: #1a1b22;
+  --color-gray: #8b8b8b;
+  --color-gray-light: #cecece;
+  --color-blue: #2f71e5;
+  --color-blue-hover: #0254e5;
+  --color-blue-disabled: #8cace5;
+  --color-white: #fff;
+  --color-error: #ff0000;
+  --color-success: #00d160;
+  --color-background: #f5f6f7;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --radius-pill: 100px;
+  --radius-card: 16px;
+  --container-width: 1200px;
+  --container-padding: 16px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --container-padding: 40px;
+  }
+}
