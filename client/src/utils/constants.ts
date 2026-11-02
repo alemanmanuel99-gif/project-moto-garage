@@ -28,6 +28,13 @@ export const ERROR_MESSAGES = {
     'Algo salió mal con la solicitud. Puede ser un problema de conexión o del servidor. Inténtalo de nuevo más tarde.',
 } as const;
 
+export const IDLE_MESSAGE = {
+  TITLE: 'Empieza tu búsqueda',
+  TEXT: 'Escribe una marca o un modelo para ver la ficha técnica de cada moto.',
+} as const;
+
+export const SEARCH_ERROR_TITLE = 'No pudimos completar la búsqueda';
+
 export const NOT_FOUND_MESSAGE = {
   TITLE: 'No se encontró nada',
   TEXT: 'Revisa cómo está escrito o prueba con otra marca o modelo.',

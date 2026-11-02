@@ -10,7 +10,7 @@ function Header() {
     <header className="header">
       <div className="header__container">
         <Link to="/" className="header__logo">
-          <img className="header__logo-icon" src={logo} alt="" width="32" height="32" />
+          <img className="header__logo-icon" src={logo} alt="Logotipo de Moto Garage" width="32" height="32" />
           Moto Garage
         </Link>
         <nav className="header__nav" aria-label="Navegación principal">

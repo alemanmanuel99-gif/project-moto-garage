@@ -44,7 +44,7 @@ function SearchForm({ isLoading, onSearch }: SearchFormProps) {
         />
       </label>
       <button className="button search-form__button" type="submit" disabled={isLoading}>
-        <img className="search-form__button-icon" src={searchIcon} alt="" width="20" height="20" />
+        <img className="search-form__button-icon" src={searchIcon} alt="Ícono de búsqueda" width="20" height="20" />
         {isLoading ? 'Buscando…' : 'Buscar'}
       </button>
     </form>

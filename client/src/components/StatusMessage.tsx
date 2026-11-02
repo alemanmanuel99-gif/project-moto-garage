@@ -16,7 +16,7 @@ function StatusMessage({ title, text, isError = false }: StatusMessageProps) {
       <img
         className="status-message__icon"
         src={isError ? errorIcon : searchIcon}
-        alt=""
+        alt={isError ? 'Ícono de error' : 'Ícono de búsqueda'}
         width="48"
         height="48"
       />
