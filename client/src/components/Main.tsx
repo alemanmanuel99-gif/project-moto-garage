@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CARDS_PER_PAGE, SEARCH_FIELD_LABELS } from '../utils/constants';
+import { CARDS_PER_PAGE, NOT_FOUND_MESSAGE, SEARCH_FIELD_LABELS } from '../utils/constants';
 import { searchMotorcycles } from '../utils/motorcyclesApi';
 import type { Motorcycle, SearchParams, SearchStatus } from '../utils/types';
 import MotorcycleList from './MotorcycleList';
@@ -41,12 +41,7 @@ function Main() {
       return <StatusMessage title="No pudimos completar la búsqueda" text={errorMessage} isError />;
     }
     if (status === 'success' && motorcycles.length === 0) {
-      return (
-        <StatusMessage
-          title="Sin resultados"
-          text="No encontramos motocicletas con ese nombre. Revisa cómo está escrito o prueba con otro."
-        />
-      );
+      return <StatusMessage title={NOT_FOUND_MESSAGE.TITLE} text={NOT_FOUND_MESSAGE.TEXT} />;
     }
     if (status === 'success' && lastSearch) {
       return (

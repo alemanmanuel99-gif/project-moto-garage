@@ -23,6 +23,12 @@ export const ERROR_MESSAGES = {
   INVALID_KEY:
     'El servicio de datos rechazó la clave de acceso. Revisa la variable VITE_API_NINJAS_KEY.',
   NETWORK:
-    'No se pudo conectar con el servicio de datos. Revisa tu conexión e inténtalo de nuevo.',
-  GENERIC: 'Algo salió mal al buscar motocicletas. Inténtalo de nuevo.',
+    'Algo salió mal con la solicitud. Puede ser un problema de conexión o del servidor. Inténtalo de nuevo más tarde.',
+  GENERIC:
+    'Algo salió mal con la solicitud. Puede ser un problema de conexión o del servidor. Inténtalo de nuevo más tarde.',
+} as const;
+
+export const NOT_FOUND_MESSAGE = {
+  TITLE: 'No se encontró nada',
+  TEXT: 'Revisa cómo está escrito o prueba con otra marca o modelo.',
 } as const;
