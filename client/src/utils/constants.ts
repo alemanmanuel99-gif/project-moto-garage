@@ -7,6 +7,14 @@ export const CURRENT_YEAR = new Date().getFullYear();
 // Cuántas tarjetas se muestran al principio y con cada "Mostrar más"
 export const CARDS_PER_PAGE = 6;
 
+// Largo mínimo de la búsqueda, contado sin los espacios del principio y del final
+export const MIN_QUERY_LENGTH = 2;
+
+export const VALIDATION_MESSAGES = {
+  EMPTY_QUERY: 'Escribe una marca o un modelo: la búsqueda no puede estar vacía ni tener solo espacios.',
+  SHORT_QUERY: `Escribe al menos ${MIN_QUERY_LENGTH} caracteres para buscar.`,
+} as const;
+
 export const SEARCH_FIELD_LABELS = {
   make: 'Marca',
   model: 'Modelo',
