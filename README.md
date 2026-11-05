@@ -2,6 +2,8 @@
 
 Aplicación web para buscar motocicletas por marca o modelo y consultar su ficha técnica: motor, cilindrada, potencia, torque, velocidad máxima, peso y más. Es el proyecto final del programa de desarrollo web de TripleTen.
 
+**Aplicación desplegada:** https://project-moto-garage.vercel.app
+
 ## Funcionalidad
 
 - **Buscador** por marca o por modelo. La búsqueda se hace solo al enviar el formulario.
