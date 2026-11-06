@@ -1,0 +1,28 @@
+.status-message {
+  max-width: 480px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.status-message__icon {
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.status-message__title {
+  margin: 0 0 12px;
+  color: var(--color-black);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.status-message__text {
+  margin: 0;
+  color: var(--color-gray);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.status-message_type_error .status-message__title {
+  color: var(--color-error);
+}

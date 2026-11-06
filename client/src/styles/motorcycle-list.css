@@ -1,0 +1,31 @@
+.motorcycle-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.motorcycle-list__item {
+  display: flex;
+  min-width: 0;
+}
+
+.motorcycle-list__more {
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 640px) {
+  .motorcycle-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .motorcycle-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
