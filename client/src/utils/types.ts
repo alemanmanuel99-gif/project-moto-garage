@@ -31,3 +31,61 @@ export interface Spec {
   label: string;
   value: string;
 }
+
+// --- Tu API (Moto Garage) ---
+
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  user: User;
+}
+
+export interface RegisterData {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export type GarageStatus = 'want' | 'tried' | 'own';
+
+export interface GarageItem {
+  _id: string;
+  make: string;
+  model: string;
+  year: number;
+  rating: number;
+  review: string;
+  status: GarageStatus;
+  owner: string;
+  createdAt: string;
+}
+
+export interface NewGarageItem {
+  make: string;
+  model: string;
+  year: string;
+  rating: number;
+  review: string;
+  status: GarageStatus;
+}
+
+export interface ApiErrorBody {
+  message?: string;
+}
+
+export type ModalName = 'signin' | 'signup' | 'save' | null;
+
+export interface Notification {
+  text: string;
+  isError: boolean;
+}

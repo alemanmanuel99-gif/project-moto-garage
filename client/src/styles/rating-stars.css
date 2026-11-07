@@ -1,0 +1,8 @@
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating-stars__star {
+  display: block;
+}

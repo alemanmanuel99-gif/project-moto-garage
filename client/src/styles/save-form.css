@@ -1,0 +1,47 @@
+.save-form__motorcycle {
+  margin: -8px 0 0;
+  color: var(--color-black);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.save-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.save-form__stars {
+  display: flex;
+  gap: 4px;
+}
+
+.save-form__star {
+  position: relative;
+  display: flex;
+  padding: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.save-form__star:hover {
+  transform: scale(1.1);
+}
+
+.save-form__star:has(.save-form__star-input:focus-visible) {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+/* El radio queda accesible para el teclado y el lector de pantalla, sin verse */
+.save-form__star-input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}

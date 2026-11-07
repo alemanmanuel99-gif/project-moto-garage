@@ -47,3 +47,44 @@ export const NOT_FOUND_MESSAGE = {
   TITLE: 'No se encontró nada',
   TEXT: 'Revisa cómo está escrito o prueba con otra marca o modelo.',
 } as const;
+
+// --- Tu API (Moto Garage) ---
+
+// Sin barra final, para que las rutas no queden con doble barra
+export const API_URL = (import.meta.env.VITE_API_URL ?? 'http://localhost:3001').replace(/\/+$/, '');
+
+export const TOKEN_STORAGE_KEY = 'jwt';
+
+export const NAME_MIN_LENGTH = 2;
+export const NAME_MAX_LENGTH = 30;
+export const PASSWORD_MIN_LENGTH = 8;
+export const REVIEW_MAX_LENGTH = 300;
+export const RATING_VALUES = [1, 2, 3, 4, 5] as const;
+
+export const GARAGE_STATUS_LABELS = {
+  want: 'La quiero',
+  tried: 'La probé',
+  own: 'La tengo',
+} as const;
+
+export const NOTIFICATION_DURATION_MS = 4000;
+
+export const API_ERROR_MESSAGES = {
+  NETWORK: 'No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo.',
+  GENERIC: 'Algo salió mal con la solicitud. Inténtalo de nuevo más tarde.',
+} as const;
+
+export const NOTIFICATIONS = {
+  REGISTERED: '¡Registro exitoso! Ahora inicia sesión con tu correo y tu contraseña.',
+  SIGNED_IN: (name: string) => `Hola, ${name}. Ya puedes guardar motos en tu garage.`,
+  SIGNED_OUT: 'Cerraste sesión. ¡Vuelve pronto!',
+  SAVED: (title: string) => `Se guardó ${title} en tu garage.`,
+  DELETED: (title: string) => `Se eliminó ${title} de tu garage.`,
+  SESSION_EXPIRED: 'Tu sesión expiró. Inicia sesión de nuevo.',
+} as const;
+
+export const GARAGE_MESSAGES = {
+  EMPTY_TITLE: 'Tu garage está vacío',
+  EMPTY_TEXT: 'Busca una moto y usa «Guardar en mi garage» para tenerla aquí con tu calificación y tu reseña.',
+  LOADING: 'Cargando tu garage…',
+} as const;

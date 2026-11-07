@@ -1,0 +1,88 @@
+.garage-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: var(--radius-card);
+  background-color: var(--color-white);
+  transition: box-shadow 0.2s ease;
+}
+
+.garage-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.garage-card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.garage-card__icon {
+  flex-shrink: 0;
+  padding: 4px;
+  border-radius: 12px;
+  background-color: var(--color-background);
+}
+
+.garage-card__meta {
+  margin: 0 0 4px;
+  color: var(--color-gray);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.garage-card__title {
+  margin: 0;
+  color: var(--color-black);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.garage-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.garage-card__status {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-background);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.garage-card__status_type_want {
+  color: var(--color-blue);
+}
+
+.garage-card__status_type_tried {
+  color: var(--color-black);
+}
+
+.garage-card__status_type_own {
+  color: var(--color-success-text);
+}
+
+.garage-card__review {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.garage-card__review_empty {
+  color: var(--color-gray);
+}
+
+.garage-card__delete {
+  width: 100%;
+  margin-top: auto;
+}
