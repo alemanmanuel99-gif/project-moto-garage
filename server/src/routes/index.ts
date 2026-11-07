@@ -11,10 +11,11 @@ const router = Router();
 // Registro e inicio de sesión: abiertos, son los que entregan el token
 router.use(authRouter);
 
-// A partir de aquí, todas las rutas exigen un JWT válido
-router.use(auth);
-router.use('/users', usersRouter);
-router.use('/garage', garageRouter);
+// Rutas protegidas: exigen un JWT válido
+router.use('/users', auth, usersRouter);
+router.use('/garage', auth, garageRouter);
+
+// Cualquier otra ruta responde 404, con o sin token
 
 router.use(() => {
   throw httpError(404, MESSAGES.ROUTE_NOT_FOUND);

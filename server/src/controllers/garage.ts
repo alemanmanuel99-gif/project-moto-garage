@@ -3,10 +3,14 @@ import mongoose from 'mongoose';
 import GarageItem from '../models/garageItem.js';
 import {
   GARAGE_STATUSES,
+  MAKE_MAX_LENGTH,
   MESSAGES,
+  MODEL_MAX_LENGTH,
   RATING_MAX,
   RATING_MIN,
   REVIEW_MAX_LENGTH,
+  YEAR_MAX,
+  YEAR_MIN,
 } from '../utils/constants.js';
 import { httpError } from '../utils/http-error.js';
 
@@ -25,8 +29,12 @@ export const createGarageItem = async (req: Request, res: Response) => {
     throw httpError(400, MESSAGES.GARAGE_REQUIRED);
   }
 
+  if (make.trim().length > MAKE_MAX_LENGTH || model.trim().length > MODEL_MAX_LENGTH) {
+    throw httpError(400, MESSAGES.GARAGE_TEXT_LENGTH);
+  }
+
   const yearNumber = Number(year);
-  if (!Number.isInteger(yearNumber) || String(yearNumber).length !== 4) {
+  if (!Number.isInteger(yearNumber) || yearNumber < YEAR_MIN || yearNumber > YEAR_MAX) {
     throw httpError(400, MESSAGES.GARAGE_INVALID_YEAR);
   }
   if (!Number.isInteger(rating) || rating < RATING_MIN || rating > RATING_MAX) {

@@ -1,9 +1,14 @@
 import { Schema, Types, model } from 'mongoose';
 import {
   GARAGE_STATUSES,
+  MAKE_MAX_LENGTH,
+  MESSAGES,
+  MODEL_MAX_LENGTH,
   RATING_MAX,
   RATING_MIN,
   REVIEW_MAX_LENGTH,
+  YEAR_MAX,
+  YEAR_MIN,
 } from '../utils/constants.js';
 
 // De API Ninjas solo se guarda lo que identifica la moto (marca, modelo y año);
@@ -20,12 +25,41 @@ interface IGarageItem {
 }
 
 const garageItemSchema = new Schema<IGarageItem>({
-  make: { type: String, required: true, trim: true, maxlength: 60 },
-  model: { type: String, required: true, trim: true, maxlength: 100 },
-  year: { type: Number, required: true, min: 1885, max: 2100 },
-  rating: { type: Number, required: true, min: RATING_MIN, max: RATING_MAX },
-  review: { type: String, trim: true, maxlength: REVIEW_MAX_LENGTH, default: '' },
-  status: { type: String, required: true, enum: GARAGE_STATUSES },
+  make: {
+    type: String,
+    required: [true, MESSAGES.GARAGE_REQUIRED],
+    trim: true,
+    maxlength: [MAKE_MAX_LENGTH, MESSAGES.GARAGE_TEXT_LENGTH],
+  },
+  model: {
+    type: String,
+    required: [true, MESSAGES.GARAGE_REQUIRED],
+    trim: true,
+    maxlength: [MODEL_MAX_LENGTH, MESSAGES.GARAGE_TEXT_LENGTH],
+  },
+  year: {
+    type: Number,
+    required: [true, MESSAGES.GARAGE_REQUIRED],
+    min: [YEAR_MIN, MESSAGES.GARAGE_INVALID_YEAR],
+    max: [YEAR_MAX, MESSAGES.GARAGE_INVALID_YEAR],
+  },
+  rating: {
+    type: Number,
+    required: [true, MESSAGES.GARAGE_REQUIRED],
+    min: [RATING_MIN, MESSAGES.GARAGE_INVALID_RATING],
+    max: [RATING_MAX, MESSAGES.GARAGE_INVALID_RATING],
+  },
+  review: {
+    type: String,
+    trim: true,
+    maxlength: [REVIEW_MAX_LENGTH, MESSAGES.GARAGE_REVIEW_LENGTH],
+    default: '',
+  },
+  status: {
+    type: String,
+    required: [true, MESSAGES.GARAGE_REQUIRED],
+    enum: { values: GARAGE_STATUSES, message: MESSAGES.GARAGE_INVALID_STATUS },
+  },
   owner: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   createdAt: { type: Date, default: Date.now },
 });

@@ -8,6 +8,11 @@ export const MIN_PASSWORD_LENGTH = 8;
 export const NAME_MIN_LENGTH = 2;
 export const NAME_MAX_LENGTH = 30;
 export const REVIEW_MAX_LENGTH = 300;
+export const MAKE_MAX_LENGTH = 60;
+export const MODEL_MAX_LENGTH = 100;
+// 1885: año de la primera motocicleta (Daimler Reitwagen)
+export const YEAR_MIN = 1885;
+export const YEAR_MAX = 2100;
 export const RATING_MIN = 1;
 export const RATING_MAX = 5;
 export const GARAGE_STATUSES = ['want', 'tried', 'own'] as const;
@@ -21,13 +26,15 @@ export const MESSAGES = {
   CREDENTIALS_TEXT: 'Los campos email y password deben ser texto',
   NAME_LENGTH: `El nombre debe tener entre ${NAME_MIN_LENGTH} y ${NAME_MAX_LENGTH} caracteres`,
   PASSWORD_LENGTH: `La contraseña debe tener al menos ${MIN_PASSWORD_LENGTH} caracteres`,
+  INVALID_EMAIL: 'El correo electrónico no es válido',
   EMAIL_TAKEN: 'Ese correo electrónico ya está registrado',
   INVALID_CREDENTIALS: 'Correo electrónico o contraseña incorrectos',
   AUTH_REQUIRED: 'Se requiere autorización',
   INVALID_TOKEN: 'Token inválido o expirado',
   USER_NOT_FOUND: 'No se encontró el usuario',
   GARAGE_REQUIRED: 'Los campos make, model, year, rating y status son obligatorios',
-  GARAGE_INVALID_YEAR: 'El año debe ser un número de cuatro cifras',
+  GARAGE_INVALID_YEAR: `El año debe ser un número entero entre ${YEAR_MIN} y ${YEAR_MAX}`,
+  GARAGE_TEXT_LENGTH: `La marca no puede superar ${MAKE_MAX_LENGTH} caracteres y el modelo ${MODEL_MAX_LENGTH}`,
   GARAGE_INVALID_RATING: `La calificación debe ser un número entero del ${RATING_MIN} al ${RATING_MAX}`,
   GARAGE_INVALID_STATUS: `El estado debe ser uno de estos: ${GARAGE_STATUSES.join(', ')}`,
   GARAGE_REVIEW_LENGTH: `La reseña no puede tener más de ${REVIEW_MAX_LENGTH} caracteres`,

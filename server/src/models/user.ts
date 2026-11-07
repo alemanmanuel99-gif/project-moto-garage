@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { NAME_MAX_LENGTH, NAME_MIN_LENGTH } from '../utils/constants.js';
+import { MESSAGES, NAME_MAX_LENGTH, NAME_MIN_LENGTH } from '../utils/constants.js';
 
 interface IUser {
   name: string;
@@ -12,25 +12,25 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const userSchema = new Schema<IUser>({
   name: {
     type: String,
-    required: true,
+    required: [true, MESSAGES.SIGNUP_REQUIRED],
     trim: true,
-    minlength: NAME_MIN_LENGTH,
-    maxlength: NAME_MAX_LENGTH,
+    minlength: [NAME_MIN_LENGTH, MESSAGES.NAME_LENGTH],
+    maxlength: [NAME_MAX_LENGTH, MESSAGES.NAME_LENGTH],
   },
   email: {
     type: String,
-    required: true,
+    required: [true, MESSAGES.SIGNUP_REQUIRED],
     unique: true,
     lowercase: true,
     trim: true,
     validate: {
       validator: (value: string) => emailRegex.test(value),
-      message: 'El correo electrónico no es válido',
+      message: MESSAGES.INVALID_EMAIL,
     },
   },
   password: {
     type: String,
-    required: true,
+    required: [true, MESSAGES.SIGNUP_REQUIRED],
     // El hash no se incluye en las consultas salvo que se pida con .select('+password')
     select: false,
   },
