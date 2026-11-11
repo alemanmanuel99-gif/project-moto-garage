@@ -79,3 +79,14 @@
   color: var(--color-gray);
   font-size: 14px;
 }
+
+.motorcycle-card__save {
+  width: 100%;
+  margin-top: auto;
+}
+
+.motorcycle-card__save:disabled {
+  border-color: var(--color-success);
+  background-color: var(--color-white);
+  color: var(--color-success);
+}

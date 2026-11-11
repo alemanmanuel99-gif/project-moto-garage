@@ -5,10 +5,20 @@ import MotorcycleCard from './MotorcycleCard';
 interface MotorcycleListProps {
   motorcycles: Motorcycle[];
   visibleCount: number;
+  isLoggedIn: boolean;
+  savedKeys: Set<string>;
   onShowMore: () => void;
+  onSaveClick: (motorcycle: Motorcycle) => void;
 }
 
-function MotorcycleList({ motorcycles, visibleCount, onShowMore }: MotorcycleListProps) {
+function MotorcycleList({
+  motorcycles,
+  visibleCount,
+  isLoggedIn,
+  savedKeys,
+  onShowMore,
+  onSaveClick,
+}: MotorcycleListProps) {
   const visibleMotorcycles = motorcycles.slice(0, visibleCount);
   const hasMore = visibleCount < motorcycles.length;
 
@@ -17,7 +27,12 @@ function MotorcycleList({ motorcycles, visibleCount, onShowMore }: MotorcycleLis
       <ul className="motorcycle-list">
         {visibleMotorcycles.map((motorcycle) => (
           <li className="motorcycle-list__item" key={getMotorcycleKey(motorcycle)}>
-            <MotorcycleCard motorcycle={motorcycle} />
+            <MotorcycleCard
+              motorcycle={motorcycle}
+              isLoggedIn={isLoggedIn}
+              isSaved={savedKeys.has(getMotorcycleKey(motorcycle))}
+              onSaveClick={onSaveClick}
+            />
           </li>
         ))}
       </ul>

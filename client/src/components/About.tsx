@@ -16,8 +16,8 @@ function About() {
               </p>
               <p className="about__text">
                 Moto Garage nació de mi gusto por las motocicletas: quería un lugar sencillo para consultar
-                la ficha técnica de cualquier modelo y, más adelante, guardar las motos que me interesan con
-                mis propias notas.
+                la ficha técnica de cualquier modelo y guardar las motos que me interesan con mi propia
+                calificación y mis notas.
               </p>
               <h3 className="about__subtitle">Tecnologías del proyecto</h3>
               <ul className="about__tags">
@@ -25,6 +25,9 @@ function About() {
                 <li className="about__tag">TypeScript</li>
                 <li className="about__tag">Vite</li>
                 <li className="about__tag">React Router</li>
+                <li className="about__tag">Node.js</li>
+                <li className="about__tag">Express</li>
+                <li className="about__tag">MongoDB</li>
                 <li className="about__tag">API Ninjas</li>
               </ul>
             </div>

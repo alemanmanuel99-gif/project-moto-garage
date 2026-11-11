@@ -1,11 +1,20 @@
 import { getSpecs, getTypeIcon } from '../utils/motorcycleDetails';
 import type { Motorcycle } from '../utils/types';
 
-interface MotorcycleCardProps {
-  motorcycle: Motorcycle;
+function getSaveButtonText(isLoggedIn: boolean, isSaved: boolean): string {
+  if (isSaved) return 'En tu garage ✓';
+  if (isLoggedIn) return 'Guardar en mi garage';
+  return 'Inicia sesión para guardar';
 }
 
-function MotorcycleCard({ motorcycle }: MotorcycleCardProps) {
+interface MotorcycleCardProps {
+  motorcycle: Motorcycle;
+  isLoggedIn: boolean;
+  isSaved: boolean;
+  onSaveClick: (motorcycle: Motorcycle) => void;
+}
+
+function MotorcycleCard({ motorcycle, isLoggedIn, isSaved, onSaveClick }: MotorcycleCardProps) {
   const specs = getSpecs(motorcycle);
   const type = motorcycle.type ?? 'Sin categoría';
 
@@ -40,6 +49,14 @@ function MotorcycleCard({ motorcycle }: MotorcycleCardProps) {
       ) : (
         <p className="motorcycle-card__empty">Sin ficha técnica disponible para este modelo.</p>
       )}
+      <button
+        className="button button_type_secondary motorcycle-card__save"
+        type="button"
+        disabled={isSaved}
+        onClick={() => onSaveClick(motorcycle)}
+      >
+        {getSaveButtonText(isLoggedIn, isSaved)}
+      </button>
     </article>
   );
 }

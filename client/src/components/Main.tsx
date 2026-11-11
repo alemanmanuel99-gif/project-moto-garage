@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import CurrentUserContext from '../contexts/CurrentUserContext';
 import {
   CARDS_PER_PAGE,
   IDLE_MESSAGE,
@@ -13,7 +14,13 @@ import Preloader from './Preloader';
 import SearchForm from './SearchForm';
 import StatusMessage from './StatusMessage';
 
-function Main() {
+interface MainProps {
+  savedKeys: Set<string>;
+  onSaveClick: (motorcycle: Motorcycle) => void;
+}
+
+function Main({ savedKeys, onSaveClick }: MainProps) {
+  const { isLoggedIn } = useContext(CurrentUserContext);
   const [motorcycles, setMotorcycles] = useState<Motorcycle[]>([]);
   const [status, setStatus] = useState<SearchStatus>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -56,7 +63,14 @@ function Main() {
             {motorcycles.length} {motorcycles.length === 1 ? 'resultado' : 'resultados'} para{' '}
             {SEARCH_FIELD_LABELS[lastSearch.field].toLowerCase()} «{lastSearch.query.trim()}»
           </h2>
-          <MotorcycleList motorcycles={motorcycles} visibleCount={visibleCount} onShowMore={handleShowMore} />
+          <MotorcycleList
+            motorcycles={motorcycles}
+            visibleCount={visibleCount}
+            isLoggedIn={isLoggedIn}
+            savedKeys={savedKeys}
+            onShowMore={handleShowMore}
+            onSaveClick={onSaveClick}
+          />
         </>
       );
     }

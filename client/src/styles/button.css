@@ -42,3 +42,21 @@
   background-color: var(--color-blue);
   color: var(--color-white);
 }
+
+.button_type_danger {
+  border-color: var(--color-error);
+  background-color: var(--color-white);
+  color: var(--color-error);
+}
+
+.button_type_danger:hover {
+  border-color: var(--color-error);
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+
+.button_type_danger:disabled {
+  border-color: var(--color-gray-light);
+  background-color: var(--color-white);
+  color: var(--color-gray);
+}
